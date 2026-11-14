@@ -176,10 +176,10 @@ async def callback_handler(event: MessageCallback):
         if state:
             state["step"] += 1
             if state["step"] >= len(QUESTIONS):
-                await event.answer(new_text="Это был последний вопрос.")
+                #await event.answer(new_text="Это был последний вопрос.")
                 await finish_quest_async(event, user_id)
             else:
-                await event.answer(new_text="Следующий вопрос:")
+                #await event.answer(new_text="Следующий вопрос:")
                 await send_question(event, user_id)
 
     elif payload == "skip_quest":
