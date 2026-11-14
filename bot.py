@@ -190,7 +190,7 @@ async def callback_handler(event: MessageCallback):
             state["error_blocks"].add(QUESTIONS[state["step"]]["block"])
             
             q = QUESTIONS[state["step"]]
-            await event.answer(new_text="Вопрос пропущен.")
+            #await event.answer(new_text="Вопрос пропущен.")
             await event.message.answer(text=q['hint'], attachments=[make_next_keyboard()])
 
 async def main():
