@@ -168,7 +168,7 @@ async def callback_handler(event: MessageCallback):
         await send_question(event, user_id)
 
     elif payload == "finish_quest":
-        await event.answer(new_text="Тест завершен.")
+        #await event.answer(new_text="Тест завершен.")
         await finish_quest_async(event, user_id)
 
     elif payload == "next_quest":
