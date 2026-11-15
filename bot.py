@@ -168,7 +168,6 @@ async def callback_handler(event: MessageCallback):
         await send_question(event, user_id)
 
     elif payload == "finish_quest":
-        #await event.answer(new_text="Тест завершен.")
         await finish_quest_async(event, user_id)
 
     elif payload == "next_quest":
@@ -176,10 +175,8 @@ async def callback_handler(event: MessageCallback):
         if state:
             state["step"] += 1
             if state["step"] >= len(QUESTIONS):
-                #await event.answer(new_text="Это был последний вопрос.")
                 await finish_quest_async(event, user_id)
             else:
-                #await event.answer(new_text="Следующий вопрос:")
                 await send_question(event, user_id)
 
     elif payload == "skip_quest":
@@ -190,7 +187,6 @@ async def callback_handler(event: MessageCallback):
             state["error_blocks"].add(QUESTIONS[state["step"]]["block"])
             
             q = QUESTIONS[state["step"]]
-            #await event.answer(new_text="Вопрос пропущен.")
             await event.message.answer(text=q['hint'], attachments=[make_next_keyboard()])
 
 async def main():
